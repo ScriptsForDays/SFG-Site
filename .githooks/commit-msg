@@ -1,0 +1,5 @@
+#!/bin/sh
+msgfile="$1"
+[ -n "$msgfile" ] && [ -f "$msgfile" ] || exit 0
+tmp="${msgfile}.strip.$$"
+grep -v '^Made-with: Cursor$' "$msgfile" > "$tmp" && mv "$tmp" "$msgfile"
